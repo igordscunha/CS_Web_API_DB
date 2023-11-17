@@ -17,13 +17,13 @@ public class FilmeContext : DbContext
 
         modelBuilder.Entity<Sessao>()
             .HasOne(sessao => sessao.Cinema)
-            .WithMany(cinema => cinema.Sessoes);
-        //.HasForeignKey(sessao => sessao.CinemaId);
+            .WithMany(cinema => cinema.Sessoes)
+            .HasForeignKey(sessao => sessao.CinemaId);
 
         modelBuilder.Entity<Sessao>()
             .HasOne(sessao => sessao.Filme)
-            .WithMany(filme => filme.Sessoes);
-            //.HasForeignKey(sessao => sessao.FilmeId);
+            .WithMany(filme => filme.Sessoes)
+            .HasForeignKey(sessao => sessao.FilmeId);
 
         modelBuilder.Entity<Endereco>()
             .HasOne(endereco => endereco.Cinema)
