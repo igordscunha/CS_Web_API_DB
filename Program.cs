@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("FilmeConnection");
+var connectionString = builder.Configuration.GetConnectionString(builder.Configuration["ConnectionStrings:FilmeConnection"]);
 
 builder.Services.AddDbContext<FilmeContext>(opts =>
     opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
